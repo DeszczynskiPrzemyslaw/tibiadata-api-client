@@ -1,0 +1,20 @@
+{
+    "name": "deszczynskiprzemyslaw/tibiadata-api-client",
+    "description": "tibiadata-api-client by Przemyslaw Deszczynski",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "TibiaDataApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "DeszczynskiPrzemyslaw",
+            "email": "przdesz@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+      "ext-curl": "*"
+    }
+}
