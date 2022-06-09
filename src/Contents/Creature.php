@@ -4,41 +4,41 @@ namespace TibiaDataApi\Contents;
 
 class Creature extends Content
 {
-    public bool $beConvinced;
+    public ?bool $be_convinced = null;
 
-    public bool $beParalyzed;
+    public ?bool $be_baralyzed = null;
 
-    public bool $beSummoned;
+    public ?bool $be_summoned = null;
 
-    public string $behaviour;
+    public ?string $behaviour = null;
 
-    public int $convincedMana;
+    public ?int $convinced_mana = null;
 
-    public string $description;
+    public ?string $description = null;
 
-    public int $experiencePoints;
+    public ?int $experience_points = null;
 
-    public bool $featured;
+    public ?bool $featured = null;
 
-    public int $hitpoints;
+    public ?int $hitpoints = null;
 
-    public string $imageUrl;
+    public ?string $image_url = null;
 
-    public array $immune;
+    public ?array $immune = null;
 
-    public bool $isLootable;
+    public ?bool $is_lootable = null;
 
-    public array $lootList;
+    public ?array $loot_list = null;
 
-    public string $name;
+    public ?string $name = null;
 
-    public string $race;
+    public ?string $race = null;
 
-    public bool $seeInvisible;
+    public ?bool $see_invisible = null;
 
-    public array $strong;
+    public ?array $strong = null;
 
-    public int $summonedMana;
+    public ?int $summoned_mana = null;
 
-    public array $weakness;
+    public ?array $weakness = null;
 }

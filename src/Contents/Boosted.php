@@ -4,11 +4,11 @@ namespace TibiaDataApi\Contents;
 
 class Boosted extends Content
 {
-    public bool $featured;
+    public ?bool $featured = null;
 
-    public string $imageUrl;
+    public ?string $image_url = null;
 
-    public string $name;
+    public ?string $name = null;
 
-    public string $race;
+    public ?string $race = null;
 }

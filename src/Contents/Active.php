@@ -2,11 +2,11 @@
 
 namespace TibiaDataApi\Contents;
 
-class AccountBadges extends Content
+class Active extends Content
 {
     public ?string $description = null;
 
-    public ?string $icon_url = null;
+    public ?string $logo_url = null;
 
     public ?string $name = null;
 }

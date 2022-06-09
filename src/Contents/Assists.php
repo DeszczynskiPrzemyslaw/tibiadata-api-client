@@ -1,16 +1,14 @@
 <?php
 
-namespace TibiaDataApi\Contents\Characters;
-
-use TibiaDataApi\Contents\Content;
+namespace TibiaDataApi\Contents;
 
 class Assists extends Content
 {
-    public string $name;
+    public ?string $name = null;
 
-    public bool $player;
+    public ?bool $player = null;
 
-    public string $summon;
+    public ?string $summon = null;
 
-    public bool $traded;
+    public ?bool $traded = null;
 }

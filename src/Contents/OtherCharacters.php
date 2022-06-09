@@ -2,20 +2,17 @@
 
 namespace TibiaDataApi\Contents;
 
-use TibiaDataApi\Contents\Characters\Character;
-use TibiaDataApi\Contents\Content;
-
 class OtherCharacters extends Content
 {
-    public array $accountBadges;
+    public ?bool $deleted = null;
 
-    public object $accountInformation;
+    public ?bool $main = null;
 
-    public array $achievements;
+    public ?string $name = null;
 
-    public Character $character;
+    public ?string $status = null;
 
-    public array $deaths;
+    public ?bool $traded = null;
 
-    public array $otherCharacters;
+    public ?string $world = null;
 }

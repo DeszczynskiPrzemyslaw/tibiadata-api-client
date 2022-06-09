@@ -4,23 +4,32 @@ namespace TibiaDataApi\Contents;
 
 class Promoted extends Content
 {
-    public string $contact;
+    public ?string $contact = null;
 
-    public object $contentType;
+    /** @var ContentType|null  */
+    public ?object $content_type = null;
 
-    public bool $fansiteItem;
+    public ?bool $fansite_item = null;
 
-    public string $fansiteItemUrl;
+    public ?string $fansite_item_url = null;
 
-    public string $homepage;
+    public ?string $homepage = null;
 
-    public array $languages;
+    public ?array $languages = null;
 
-    public string $logoUrl;
+    public ?string $logo_url = null;
 
-    public string $name;
+    public ?string $name = null;
 
-    public object $socialMedia;
+    /** @var SocialMedia|null  */
+    public ?object $social_media = null;
 
-    public array $specials;
+    public ?array $specials = null;
+
+
+    protected function setup(): void
+    {
+        $this->cast('content_type', ContentType::class);
+        $this->cast('social_media', SocialMedia::class);
+    }
 }

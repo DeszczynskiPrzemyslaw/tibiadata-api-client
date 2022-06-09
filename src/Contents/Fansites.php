@@ -4,7 +4,16 @@ namespace TibiaDataApi\Contents;
 
 class Fansites extends Content
 {
-    public array $promoted;
+    /** @var Promoted[]|null  */
+    public ?array $promoted = null;
 
-    public array $supported;
+    /** @var Supported[]|null  */
+    public ?array $supported = null;
+
+
+    protected function setup(): void
+    {
+        $this->castArray('promoted', Promoted::class);
+        $this->castArray('supported', Supported::class);
+    }
 }

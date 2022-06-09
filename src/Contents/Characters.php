@@ -4,22 +4,32 @@ namespace TibiaDataApi\Contents;
 
 class Characters extends Content
 {
-    public array $accountBadges;
+    /** @var AccountBadges[]|null  */
+    public ?array $account_badges = null;
 
-    public object $accountInformation;
+    /** @var AccountInformation|null  */
+    public ?object $account_information = null;
 
-    public array $achievements;
+    /** @var Achievements[]|null  */
+    public ?array $achievements = null;
 
-    /** @var Character */
-    public object $character;
+    /** @var Character|null */
+    public ?object $character = null;
 
-    public array $deaths;
+    /** @var Deaths[]|null  */
+    public ?array $deaths = null;
 
-    public array $otherCharacters;
+    /** @var OtherCharacters[]|null  */
+    public ?array $other_characters = null;
 
 
     public function setup(): void
     {
+        $this->castArray('account_badges', AccountBadges::class);
+        $this->cast('account_information', AccountInformation::class);
+        $this->castArray('achievements', Achievements::class);
         $this->cast('character', Character::class);
+        $this->castArray('deaths', Deaths::class);
+        $this->castArray('other_characters', OtherCharacters::class);
     }
 }

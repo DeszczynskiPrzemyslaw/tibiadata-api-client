@@ -1,18 +1,25 @@
 <?php
 
-namespace TibiaDataApi\Contents\Characters;
-
-use TibiaDataApi\Contents\Content;
+namespace TibiaDataApi\Contents;
 
 class Deaths extends Content
 {
-    public array $assists;
+    /** @var Assists[]|null  */
+    public ?array $assists = null;
 
-    public array $killers;
+    /** @var Killers[]|null  */
+    public ?array $killers = null;
 
-    public int $level;
+    public ?int $level = null;
 
-    public string $reason;
+    public ?string $reason = null;
 
-    public string $time;
+    public ?string $time = null;
+
+
+    public function setup(): void
+    {
+        $this->castArray('assists', Assists::class);
+        $this->castArray('killers', Killers::class);
+    }
 }

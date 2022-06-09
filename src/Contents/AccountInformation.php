@@ -1,14 +1,12 @@
 <?php
 
-namespace TibiaDataApi\Contents\Characters;
-
-use TibiaDataApi\Contents\Content;
+namespace TibiaDataApi\Contents;
 
 class AccountInformation extends Content
 {
-    public string $created;
+    public ?string $created = null;
 
-    public string $loyaltyTitle;
+    public ?string $loyalty_title = null;
 
-    public string $position;
+    public ?string $position = null;
 }

@@ -2,15 +2,13 @@
 
 namespace TibiaDataApi\Contents;
 
-use TibiaDataApi\Contents\Content;
-
 class Killers extends Content
 {
-    public string $name;
+    public ?string $name = null;
 
-    public bool $player;
+    public ?bool $player = null;
 
-    public string $summon;
+    public ?string $summon = null;
 
-    public bool $traded;
+    public ?bool $traded = null;
 }

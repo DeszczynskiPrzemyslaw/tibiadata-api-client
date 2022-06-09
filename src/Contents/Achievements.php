@@ -1,14 +1,12 @@
 <?php
 
-namespace TibiaDataApi\Contents\Characters;
-
-use TibiaDataApi\Contents\Content;
+namespace TibiaDataApi\Contents;
 
 class Achievements extends Content
 {
-    public int $grade;
+    public ?int $grade = null;
 
-    public string $name;
+    public ?string $name = null;
 
-    public bool $secret;
+    public ?bool $secret = null;
 }
