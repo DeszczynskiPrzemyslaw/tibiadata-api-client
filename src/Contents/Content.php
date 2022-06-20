@@ -16,6 +16,7 @@ abstract class Content
 
     protected function setup(): void
     {
+        // override me
     }
 
     protected function cast($field, $class): void

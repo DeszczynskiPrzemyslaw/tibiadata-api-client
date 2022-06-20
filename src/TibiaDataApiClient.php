@@ -19,16 +19,21 @@ use TibiaDataApi\Contents\Worlds;
 
 class TibiaDataApiClient implements TibiaDataApiInterface
 {
-    const API_URL = [
+    private const API_URL = [
         'TEST' => 'https://dev.tibiadata.com/v3',
         'PROD' => 'https://api.tibiadata.com/v3'
     ];
 
-    private $environment;
+    private string $environment;
 
     private ?Information $information = null;
 
-
+    /**
+     * Tibia Data API Client constructor.
+     *
+     * @param string $environment
+     * @throws TibiaDataApiException
+     */
     public function __construct(string $environment = 'PROD')
     {
         if (!array_key_exists($environment, self::API_URL)) {
@@ -42,10 +47,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         $pathParams = [
             "{name}" => $name,
         ];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/character/{name}', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/character/{name}', $pathParams),
             Characters::class
         );
     }
@@ -55,10 +59,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         $pathParams = [
             "{race}" => $race,
         ];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/creature/{race}', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/creature/{race}', $pathParams),
             Creature::class
         );
     }
@@ -66,10 +69,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
     public function creatures(): Creatures
     {
         $pathParams = [];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/creatures', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/creatures', $pathParams),
             Creatures::class
         );
     }
@@ -77,10 +79,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
     public function fansites(): Fansites
     {
         $pathParams = [];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/fansites', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/fansites', $pathParams),
             Fansites::class
         );
     }
@@ -90,10 +91,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         $pathParams = [
             "{name}" => $name
         ];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/guild/{name}', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/guild/{name}', $pathParams),
             Guilds::class
         );
     }
@@ -103,10 +103,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         $pathParams = [
             "{world}" => $world
         ];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/guilds/{world}', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/guilds/{world}', $pathParams),
             Guilds::class
         );
     }
@@ -118,10 +117,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
             "{category}" => $category,
             "{vocation}" => $vocation,
         ];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/highscores/{world}/{category}/{vocation}', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/highscores/{world}/{category}/{vocation}', $pathParams),
             Highscores::class
         );
     }
@@ -132,10 +130,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
             "{world}" => $world,
             "{house_id}" => $house_id,
         ];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/house/{world}/{house_id}', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/house/{world}/{house_id}', $pathParams),
             House::class
         );
     }
@@ -146,10 +143,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
             "{world}" => $world,
             "{town}" => $town,
         ];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/houses/{world}/{town}', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/houses/{world}/{town}', $pathParams),
             Houses::class
         );
     }
@@ -159,23 +155,31 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         $pathParams = [
             "{world}" => $world,
         ];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/killstatistics/{world}', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/killstatistics/{world}', $pathParams),
             Killstatistics::class
         );
     }
 
-    public function newsArchive(int $days = 90): News
+    public function newsArchive(): News
+    {
+        $pathParams = [];
+
+        return $this->cast(
+            $this->sendRequest('GET', '/news/archive', $pathParams),
+            News::class
+        );
+    }
+
+    public function newsArchiveWithDaysFilter(int $days): News
     {
         $pathParams = [
             "{days}" => $days,
         ];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/news/archive/{days}', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/news/archive/{days}', $pathParams),
             News::class
         );
     }
@@ -185,10 +189,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         $pathParams = [
             "{news_id}" => $news_id,
         ];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/news/id/{news_id}', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/news/id/{news_id}', $pathParams),
             News::class
         );
     }
@@ -196,10 +199,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
     public function newsLatest(): News
     {
         $pathParams = [];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/news/latest', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/news/latest', $pathParams),
             News::class
         );
     }
@@ -207,10 +209,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
     public function newsNewsticker(): News
     {
         $pathParams = [];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/news/newsticker', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/news/newsticker', $pathParams),
             News::class
         );
     }
@@ -220,10 +221,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         $pathParams = [
             "{spell_id}" => $spell_id,
         ];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/spell/{spell_id}', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/spell/{spell_id}', $pathParams),
             Spells::class
         );
     }
@@ -231,10 +231,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
     public function spells(): Spells
     {
         $pathParams = [];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/spells', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/spells', $pathParams),
             Spells::class
         );
     }
@@ -244,10 +243,9 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         $pathParams = [
             "{name}" => $name,
         ];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/world/{name}', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/world/{name}', $pathParams),
             Worlds::class
         );
     }
@@ -255,40 +253,52 @@ class TibiaDataApiClient implements TibiaDataApiInterface
     public function worlds(): Worlds
     {
         $pathParams = [];
-        $queryParams = [];
 
         return $this->cast(
-            $this->request('GET', '/worlds', $pathParams, $queryParams),
+            $this->sendRequest('GET', '/worlds', $pathParams),
             Worlds::class
         );
     }
 
+    /**
+     * Get api_version and timestamp
+     *
+     * @return Information|null
+     */
     public function getInformation(): ?Information
     {
         return $this->information;
     }
 
-    private function request(string $method, string $path, array $pathParams, array $queryParams)
+    /**
+     * @param string $method
+     * @param string $path
+     * @param array $pathParams
+     *
+     * @return string
+     */
+    private function sendRequest(string $method, string $path, array $pathParams = [])
     {
         $url = self::API_URL[$this->environment] . strtr($path, $pathParams);
         $curl = curl_init();
-        $queryParams = http_build_query($queryParams);
 
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
         curl_setopt($curl, CURLOPT_URL, $url);
-        if ($method === 'GET' && !empty($queryParams)) {
-            curl_setopt($curl, CURLOPT_URL, $url . '?' . $queryParams);
-        }
-        if ($method === 'POST' && !empty($queryParams)) {
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $queryParams);
-        }
         $response = curl_exec($curl);
         curl_close($curl);
 
         return $response;
     }
 
+    /**
+     * @param string $response
+     * @param string $class
+     *
+     * @return Content
+     *
+     * @throws TibiaDataApiException
+     */
     private function cast(string $response, string $class): Content
     {
         if (!($decoded = json_decode($response))) {
