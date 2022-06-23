@@ -2,12 +2,18 @@
 
 namespace TibiaDataApi\Contents;
 
+use TibiaDataApi\TibiaDataApiException;
+
 abstract class Content
 {
     public function __construct($data)
     {
-        foreach ($data as $field => $value) {
-            $this->{$field} = $value;
+        if (is_string($data)) {
+            throw new TibiaDataApiException('Too many requests.');
+        } else {
+            foreach ($data as $field => $value) {
+                $this->{$field} = $value;
+            }
         }
 
         $this->setup();
