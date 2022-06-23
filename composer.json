@@ -2,6 +2,7 @@
     "name": "deszczynskiprzemyslaw/tibiadata-api-client",
     "description": "tibiadata-api-client by Przemyslaw Deszczynski",
     "type": "library",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "TibiaDataApi\\": "src/"
