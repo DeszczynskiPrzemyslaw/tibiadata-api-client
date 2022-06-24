@@ -27,25 +27,25 @@ Supported Versions
 Methods
 -------
 ```php
-character(string $name): Characters|Error
-creature(string $race): Creature|Error
-creatures(): Creatures|Error
-fansites(): Fansites|Error
-guild(string $name): Guilds|Error
-guilds(string $world): Guilds|Error
-highscores(string $world, string $category, string $vocation): Highscores|Error
-house(string $world, int $houseId): House|Error
-houses(string $world, string $town): Houses|Error
-killStatistics(string $world): Killstatistics|Error
-newsArchive(): News|Error
-newsArchiveWithDaysFilter(int $days): News|Error
-newsId(int $news_id): News|Error
-newsLatest(): News|Error
-newsNewsticker(): News|Error
-spell(string $spell_id): Spells|Error
-spells(): Spells|Error
-world(string $name): Worlds|Error
-worlds(): Worlds|Error
+character(string $name): Characters
+creature(string $race): Creature
+creatures(): Creatures
+fansites(): Fansites
+guild(string $name): Guilds
+guilds(string $world): Guilds
+highscores(string $world, string $category, string $vocation): Highscores
+house(string $world, int $houseId): House
+houses(string $world, string $town): Houses
+killStatistics(string $world): Killstatistics
+newsArchive(): News
+newsArchiveWithDaysFilter(int $days): News
+newsId(int $news_id): News
+newsLatest(): News
+newsNewsticker(): News
+spell(string $spell_id): Spells
+spells(): Spells
+world(string $name): Worlds
+worlds(): Worlds
 ```
 
 Usage
