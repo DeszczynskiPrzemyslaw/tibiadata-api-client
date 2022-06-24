@@ -6,7 +6,6 @@ use TibiaDataApi\Contents\Characters;
 use TibiaDataApi\Contents\Content;
 use TibiaDataApi\Contents\Creature;
 use TibiaDataApi\Contents\Creatures;
-use TibiaDataApi\Contents\Error;
 use TibiaDataApi\Contents\Fansites;
 use TibiaDataApi\Contents\Guilds;
 use TibiaDataApi\Contents\Highscores;
@@ -46,7 +45,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         $this->environment = $environment;
     }
 
-    public function character(string $name): Characters|Error
+    public function character(string $name): Characters
     {
         $pathParams = [
             "{name}" => $name,
@@ -58,7 +57,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function creature(string $race): Creature|Error
+    public function creature(string $race): Creature
     {
         $pathParams = [
             "{race}" => $race,
@@ -70,7 +69,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function creatures(): Creatures|Error
+    public function creatures(): Creatures
     {
         $pathParams = [];
 
@@ -80,7 +79,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function fansites(): Fansites|Error
+    public function fansites(): Fansites
     {
         $pathParams = [];
 
@@ -90,7 +89,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function guild(string $name): Guilds|Error
+    public function guild(string $name): Guilds
     {
         $pathParams = [
             "{name}" => $name
@@ -102,7 +101,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function guilds(string $world): Guilds|Error
+    public function guilds(string $world): Guilds
     {
         $pathParams = [
             "{world}" => $world
@@ -114,7 +113,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function highscores(string $world, string $category, string $vocation): Highscores|Error
+    public function highscores(string $world, string $category, string $vocation): Highscores
     {
         $pathParams = [
             "{world}" => $world,
@@ -128,7 +127,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function house(string $world, int $house_id): House|Error
+    public function house(string $world, int $house_id): House
     {
         $pathParams = [
             "{world}" => $world,
@@ -141,7 +140,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function houses(string $world, string $town): Houses|Error
+    public function houses(string $world, string $town): Houses
     {
         $pathParams = [
             "{world}" => $world,
@@ -154,7 +153,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function killstatistics(string $world): Killstatistics|Error
+    public function killstatistics(string $world): Killstatistics
     {
         $pathParams = [
             "{world}" => $world,
@@ -166,7 +165,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function newsArchive(): News|Error
+    public function newsArchive(): News
     {
         $pathParams = [];
 
@@ -176,7 +175,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function newsArchiveWithDaysFilter(int $days): News|Error
+    public function newsArchiveWithDaysFilter(int $days): News
     {
         $pathParams = [
             "{days}" => $days,
@@ -188,7 +187,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function newsId(int $news_id): News|Error
+    public function newsId(int $news_id): News
     {
         $pathParams = [
             "{news_id}" => $news_id,
@@ -200,7 +199,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function newsLatest(): News|Error
+    public function newsLatest(): News
     {
         $pathParams = [];
 
@@ -210,7 +209,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function newsNewsticker(): News|Error
+    public function newsNewsticker(): News
     {
         $pathParams = [];
 
@@ -220,7 +219,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function spell(string $spell_id): Spells|Error
+    public function spell(string $spell_id): Spells
     {
         $pathParams = [
             "{spell_id}" => $spell_id,
@@ -232,7 +231,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function spells(): Spells|Error
+    public function spells(): Spells
     {
         $pathParams = [];
 
@@ -242,7 +241,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function world(string $name): Worlds|Error
+    public function world(string $name): Worlds
     {
         $pathParams = [
             "{name}" => $name,
@@ -254,7 +253,7 @@ class TibiaDataApiClient implements TibiaDataApiInterface
         );
     }
 
-    public function worlds(): Worlds|Error
+    public function worlds(): Worlds
     {
         $pathParams = [];
 

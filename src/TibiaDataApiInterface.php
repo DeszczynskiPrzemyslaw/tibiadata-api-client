@@ -5,7 +5,6 @@ namespace TibiaDataApi;
 use TibiaDataApi\Contents\Characters;
 use TibiaDataApi\Contents\Creature;
 use TibiaDataApi\Contents\Creatures;
-use TibiaDataApi\Contents\Error;
 use TibiaDataApi\Contents\Fansites;
 use TibiaDataApi\Contents\Guilds;
 use TibiaDataApi\Contents\Highscores;
@@ -24,9 +23,9 @@ interface TibiaDataApiInterface
      *
      * @param string $name
      *
-     * @return Characters|Error
+     * @return Characters
      */
-    public function character(string $name): Characters|Error;
+    public function character(string $name): Characters;
 
     /**
      * Show all information about one creature
@@ -34,25 +33,25 @@ interface TibiaDataApiInterface
      *
      * @param string $race
      *
-     * @return Creature|Error
+     * @return Creature
      */
-    public function creature(string $race): Creature|Error;
+    public function creature(string $race): Creature;
 
     /**
      * Show all creatures listed
      * @see https://dev.tibiadata.com/v3/creatures
      *
-     * @return Creatures|Error
+     * @return Creatures
      */
-    public function creatures(): Creatures|Error;
+    public function creatures(): Creatures;
 
     /**
      * List of all promoted and supported fansites
      * @see https://dev.tibiadata.com/v3/fansites
      *
-     * @return Fansites|Error
+     * @return Fansites
      */
-    public function fansites(): Fansites|Error;
+    public function fansites(): Fansites;
 
     /**
      * Show all information about one guild
@@ -60,9 +59,9 @@ interface TibiaDataApiInterface
      *
      * @param string $name
      *
-     * @return Guilds|Error
+     * @return Guilds
      */
-    public function guild(string $name): Guilds|Error;
+    public function guild(string $name): Guilds;
 
     /**
      * Show all guilds on a certain world
@@ -70,9 +69,9 @@ interface TibiaDataApiInterface
      *
      * @param string $world
      *
-     * @return Guilds|Error
+     * @return Guilds
      */
-    public function guilds(string $world): Guilds|Error;
+    public function guilds(string $world): Guilds;
 
     /**
      * Show all highscores of tibia
@@ -82,9 +81,9 @@ interface TibiaDataApiInterface
      * @param string $category
      * @param string $vocation
      *
-     * @return Highscores|Error
+     * @return Highscores
      */
-    public function highscores(string $world, string $category, string $vocation): Highscores|Error;
+    public function highscores(string $world, string $category, string $vocation): Highscores;
 
     /**
      * Show all information about one house
@@ -93,9 +92,9 @@ interface TibiaDataApiInterface
      * @param string $world
      * @param int $houseId
      *
-     * @return House|Error
+     * @return House
      */
-    public function house(string $world, int $houseId): House|Error;
+    public function house(string $world, int $houseId): House;
 
     /**
      * Show all houses filtered on world and town
@@ -104,9 +103,9 @@ interface TibiaDataApiInterface
      * @param string $world
      * @param string $town
      *
-     * @return Houses|Error
+     * @return Houses
      */
-    public function houses(string $world, string $town): Houses|Error;
+    public function houses(string $world, string $town): Houses;
 
     /**
      * Show all killstatistics filtered on world
@@ -114,17 +113,17 @@ interface TibiaDataApiInterface
      *
      * @param string $world
      *
-     * @return Killstatistics|Error
+     * @return Killstatistics
      */
-    public function killStatistics(string $world): Killstatistics|Error;
+    public function killStatistics(string $world): Killstatistics;
 
     /**
      * Show news archive with a filtering on 90 days
      * @see https://dev.tibiadata.com/v3/news/archive
      *
-     * @return News|Error
+     * @return News
      */
-    public function newsArchive(): News|Error;
+    public function newsArchive(): News;
 
     /**
      * Show news archive with a filtering option on days
@@ -132,9 +131,9 @@ interface TibiaDataApiInterface
      *
      * @param int $days
      *
-     * @return News|Error
+     * @return News
      */
-    public function newsArchiveWithDaysFilter(int $days): News|Error;
+    public function newsArchiveWithDaysFilter(int $days): News;
 
     /**
      * Show one news entry
@@ -142,25 +141,25 @@ interface TibiaDataApiInterface
      *
      * @param int $news_id
      *
-     * @return News|Error
+     * @return News
      */
-    public function newsId(int $news_id): News|Error;
+    public function newsId(int $news_id): News;
 
     /**
      * Show newslist with filtering on articles and news of last 90 days
      * @see https://dev.tibiadata.com/v3/news/latest
      *
-     * @return News|Error
+     * @return News
      */
-    public function newsLatest(): News|Error;
+    public function newsLatest(): News;
 
     /**
      * Show news of type news tickers of last 90 days
      * @see https://dev.tibiadata.com/v3/news/newsticker
      *
-     * @return News|Error
+     * @return News
      */
-    public function newsNewsticker(): News|Error;
+    public function newsNewsticker(): News;
 
     /**
      * Show all information about one spell
@@ -168,17 +167,17 @@ interface TibiaDataApiInterface
      *
      * @param string $spell_id
      *
-     * @return Spells|Error
+     * @return Spells
      */
-    public function spell(string $spell_id): Spells|Error;
+    public function spell(string $spell_id): Spells;
 
     /**
      * Show all spells
      * @see https://dev.tibiadata.com/v3/spells
      *
-     * @return Spells|Error
+     * @return Spells
      */
-    public function spells(): Spells|Error;
+    public function spells(): Spells;
 
     /**
      * Show all information about one world
@@ -186,15 +185,15 @@ interface TibiaDataApiInterface
      *
      * @param string $name
      *
-     * @return Worlds|Error
+     * @return Worlds
      */
-    public function world(string $name): Worlds|Error;
+    public function world(string $name): Worlds;
 
     /**
      * Show all worlds of Tibia
      * @see https://dev.tibiadata.com/v3/worlds
      *
-     * @return Worlds|Error
+     * @return Worlds
      */
-    public function worlds(): Worlds|Error;
+    public function worlds(): Worlds;
 }
