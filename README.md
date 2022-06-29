@@ -1,6 +1,10 @@
 Tibiadata API Client
 ====================
 
+[![Packagist](https://img.shields.io/packagist/l/deszczynskiprzemyslaw/tibiadata-api-client)](https://packagist.org/packages/deszczynskiprzemyslaw/tibiadata-api-client)
+[![Latest Stable Version](https://img.shields.io/packagist/v/deszczynskiprzemyslaw/tibiadata-api-client.svg)](https://packagist.org/packages/deszczynskiprzemyslaw/tibiadata-api-client)
+[![Total Downloads](https://img.shields.io/packagist/dt/deszczynskiprzemyslaw/tibiadata-api-client)](https://packagist.org/packages/deszczynskiprzemyslaw/tibiadata-api-client)
+
 Tibiadata API / API ze strony Tibia.com
 
 API Docs
